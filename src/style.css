@@ -1,0 +1,118 @@
+body {
+    background-color: #181926;
+    font-family: monospace;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+p {
+    line-height: 120%;
+}
+
+a {
+    color: #ff9413;
+    text-decoration-style: dashed;
+}
+
+a:hover {
+    color: #ff9413;
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2e2f48;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #242438;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+#term-green {
+    color: #05ce91;
+}
+
+#term-orange {
+    color: #ff9413;
+}
+
+.banner-glow, #banner-glow {
+    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 10px #dae3ec;
+}
+
+.faint-glow-green, #faint-glow-green {
+    text-shadow: 0px 0px 5px #05ce91, 0px 0px 50px #05ce91;
+}
+
+#main-wrapper {
+
+    display: inline-block;
+    background-color: transparent;
+
+    height: 500px;
+    width: 70%;
+
+    padding-top: 0px;
+    padding-left: 25px;
+
+    color: #dae3ec;
+    font-size: 17px;
+}
+
+#terminal {
+    display: flex;
+}
+
+#terminal-input {
+    background-color: transparent;
+
+    border: 0px;
+    appearance: none;
+    outline-width: 0;
+
+    margin-top: 15px;
+    margin-left: 10px;
+
+    font-family: monospace;
+    font-size: 17px;
+    color: #dae3ec;
+}
+
+#cursor {
+    position: relative;
+}
+#cursor i {
+    position: absolute;
+    width: 10px;
+    height: 80%;
+    background-color: transparent;
+    left: 5px;
+    top: 10%;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    opacity: 1;
+}
+
+#cursor input:focus + i {
+    display: none;
+    outline: 0;
+}
+
+#bottom {
+    padding-bottom: 100px;
+}
