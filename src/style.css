@@ -42,12 +42,16 @@ a:hover {
     to { opacity: 0; }
 }
 
-#term-green {
+.term-green, #term-green {
     color: #05ce91;
 }
 
-#term-orange {
+.term-orange, #term-orange {
     color: #ff9413;
+}
+
+.term-purple, #term-purple { /* NOTE : A friend of mine said to use pink so I'm using it for now */
+    color: #ff02ab;
 }
 
 .banner-glow, #banner-glow {
@@ -56,6 +60,14 @@ a:hover {
 
 .faint-glow-green, #faint-glow-green {
     text-shadow: 0px 0px 5px #05ce91, 0px 0px 50px #05ce91;
+}
+
+.faint-glow-orange, #faint-glow-orange {
+    text-shadow: 0px 0px 5px #ff9413, 0px 0px 50px #ff9413;
+}
+
+.faint-glow-purple, #faint-glow-purple {
+    text-shadow: 0px 0px 5px #ff02ab, 0px 0px 50px #ff02ab;
 }
 
 #main-wrapper {

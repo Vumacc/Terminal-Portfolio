@@ -1,20 +1,21 @@
 let input = document.querySelector('#terminal-input');
 let content = document.querySelector('#terminal-content');
-const o = '&nbsp;' // Creates blank space
+const o = '&nbsp;'
 let helpCmds = [
-    `------ Utility ------ <br>`,
-    `help ${o}${o}${o}${o}${o}${o}${o}${o} Displays this message <br>`,
-    `welcome ${o}${o}${o}${o}${o} Displays the welcome message <br>`,
-    `info ${o}${o}${o}${o}${o}${o}${o}${o} Information about myself <br>`,
-    `projects ${o}${o}${o}${o} Some of my major projects <br>`,
-    `skills ${o}${o}${o}${o}${o}${o} Shows the skills I have <br>`,
-    `contact ${o}${o}${o}${o}${o} Displays information of my contacts <br>`,
-    `source ${o}${o}${o}${o}${o}${o} Gives the Github repository with the source code <br>`,
-    `clear ${o}${o}${o}${o}${o}${o}${o} Clears the terminal <br>`,
     `<br>`,
-    `------ Fun ------ <br>`,
-    `whoami ${o}${o}${o}${o}${o}${o} What\'s your name? <br>`,
-    `sudo ${o}${o}${o}${o}${o}${o}${o}${o} ??? <br>`
+    `<strong>------ Utility ------</strong><br>`,
+    `<span id='faint-glow-purple' class='term-purple'>help</span> ${o}${o}${o}${o}${o}${o}${o}${o} Displays this message <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>welcome</span> ${o}${o}${o}${o}${o} Displays the welcome message <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>info</span> ${o}${o}${o}${o}${o}${o}${o}${o} Information about myself <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o} Some of my major projects <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>skills</span> ${o}${o}${o}${o}${o}${o} Shows the skills I have <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>contact</span> ${o}${o}${o}${o}${o} Displays information of my contacts <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>source</span> ${o}${o}${o}${o}${o}${o} Gives the Github repository with the source code <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>clear</span> ${o}${o}${o}${o}${o}${o}${o} Clears the terminal <br>`,
+    `<br>`,
+    `<strong>------ Fun ------</strong><br>`,
+    `<span id='faint-glow-purple' class='term-purple'>whoami</span> ${o}${o}${o}${o}${o}${o} What\'s your name? <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>sudo</span> ${o}${o}${o}${o}${o}${o}${o}${o} ??? <br>`
 ];
 
 input.addEventListener('keydown', HandleCommand);
