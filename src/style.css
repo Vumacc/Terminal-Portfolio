@@ -1,3 +1,7 @@
+/*
+Note : I was a dumbass and used IDs instead of classes in `index.html`, I've gone too far to change it now so it will stay like that for now.
+*/
+
 body {
     background-color: #181926;
     font-family: monospace;
@@ -30,7 +34,6 @@ a:hover {
 
 ::-webkit-scrollbar-thumb {
     background: #2e2f48;
-    border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -50,12 +53,16 @@ a:hover {
     color: #ff9413;
 }
 
-.term-purple, #term-purple { /* NOTE : A friend of mine said to use pink so I'm using it for now */
-    color: #ff02ab;
+.term-purple, #term-purple {
+    color: #e04baf;
 }
 
 .banner-glow, #banner-glow {
     text-shadow: 0px 0px 5px #dae3ec, 0px 0px 10px #dae3ec;
+}
+
+.faint-glow-white, #faint-glow-green {
+    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 50px #dae3ec
 }
 
 .faint-glow-green, #faint-glow-green {
@@ -67,7 +74,7 @@ a:hover {
 }
 
 .faint-glow-purple, #faint-glow-purple {
-    text-shadow: 0px 0px 5px #ff02ab, 0px 0px 50px #ff02ab;
+    text-shadow: 0px 0px 5px #e04baf, 0px 0px 50px #e04baf;
 }
 
 #main-wrapper {
