@@ -61,7 +61,7 @@ a:hover {
     text-shadow: 0px 0px 5px #dae3ec, 0px 0px 10px #dae3ec;
 }
 
-.faint-glow-white, #faint-glow-green {
+.faint-glow-white, #faint-glow-white {
     text-shadow: 0px 0px 5px #dae3ec, 0px 0px 50px #dae3ec
 }
 
@@ -75,6 +75,10 @@ a:hover {
 
 .faint-glow-purple, #faint-glow-purple {
     text-shadow: 0px 0px 5px #e04baf, 0px 0px 50px #e04baf;
+}
+
+.flex, #flex {
+    display: flex;
 }
 
 #main-wrapper {
@@ -134,4 +138,23 @@ a:hover {
 
 #bottom {
     padding-bottom: 100px;
+}
+
+.info-border {
+    border: 2px;
+    border-color: #27293e;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 10px;
+    width: 750px;
+}
+
+.info-left {
+    background-color: transparent;
+}
+
+.info-right {
+    background-color: transparent;
+    padding-left: 85px;
+    text-align: center;
 }

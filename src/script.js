@@ -1,21 +1,21 @@
-let input = document.querySelector('#terminal-input');
-let content = document.querySelector('#terminal-content');
+var input = document.getElementById('terminal-input');
+var content = document.getElementById('terminal-content');
 
 const o = '&nbsp;'
 const helpCmds = [
     `<strong>------ Utility ------</strong><br>`,
-    `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}  Displays this message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}              Displays the welcome message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>info</span>     ${o}${o}${o}${o}${o}${o}${o}${o}  Information about myself <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                  Some of my major projects <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>skills</span>   ${o}${o}${o}${o}${o}${o}          Shows the skills I have <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>contact</span>  ${o}${o}${o}${o}${o}              Displays information of my contacts <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}          Redirects to this project's Github repository <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}      Clears the terminal <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}                  Displays the welcome message <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>info</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Information about myself <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                       Some of my major projects <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>skills</span>   ${o}${o}${o}${o}${o}${o}             Shows the skills I have <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>contact</span>  ${o}${o}${o}${o}${o}                  Displays information of my contacts <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}             Redirects to this project's Github repository <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}        Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
-    `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}          What\'s your name? <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>sudo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}  ??? <br>`
+    `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>sudo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   ??? <br>`
 ];
 const welcomeMsg = [
     `<span id="banner-glow">__ ${o}${o} __<br></span>`,
@@ -31,8 +31,30 @@ const welcomeMsg = [
     `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
     `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.`
 ];
+const infoMsg = [
+    `<div class="flex info-border">
+        <div class="info-left">
+            <img src="src/assets/pfp.jpg" width="200" height="200" style="margin-right: 20px; border-radius: 20px;">
+        </div>
+        <div class="info-right">
+            <br>
+            VUMACC<br>
+            ----------<br>
+            Hello! I'm a self-taught web and app<br>
+            developer.
+            <br><br>
+            I mainly use Javascript and C#,<br>
+            but I am also learning C++ and<br>
+            Typescript aswell.
+        </div>
+    </div>`
+];
 
-input.addEventListener('keydown', HandleCommand);
+input.addEventListener('keydown', HandleCommands);
+
+function ScrollToBottom() {
+    window.scrollTo(0, document.body.scrollHeight);
+}
 
 function TermEcho(text, delay) {
     let index = 0;
@@ -40,28 +62,21 @@ function TermEcho(text, delay) {
     const inputInterval = setInterval(function() {
         content.innerHTML += text[index];
         index++;
+        ScrollToBottom();
         if (index === text.length) {
             clearInterval(inputInterval);
         }
     }, delay);
 }
 
-function HandleCommand(event) {
+function HandleCommands(event) {
     if(event.key === 'Enter') {
         const command = input.value.trim();
         input.value = '';
         content.innerHTML += `<br><span id="term-orange">visitor</span>@<span id="term-green">github.vumacc.io</span>:~$ ${command} <br>`;
         ExecuteCommand(command);
-
     }
 }
-
-/* No worky :(
-function ScrollDown() {
-    document.getElementById('#bottom').scrollIntoView();
-    window.setTimeout( function () { top(); }, 2000 );
-};
-*/
 
 function ExecuteCommand(command) {
     switch (command) {
@@ -74,7 +89,7 @@ function ExecuteCommand(command) {
             break;
 
         case 'info':
-
+            TermEcho(infoMsg, 25);
             break;
 
         case 'projects':
