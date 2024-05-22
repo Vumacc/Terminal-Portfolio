@@ -5,13 +5,13 @@ const o = '&nbsp;'
 const helpCmds = [
     `<strong>------ Utility ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}                  Displays the welcome message <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}               Displays the welcome message <br>`,
     `<span id='faint-glow-purple' class='term-purple'>info</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Information about myself <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                       Some of my major projects <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>skills</span>   ${o}${o}${o}${o}${o}${o}             Shows the skills I have <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>contact</span>  ${o}${o}${o}${o}${o}                  Displays information of my contacts <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}             Redirects to this project's Github repository <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}        Clears the terminal <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                   Some of my coding projects <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>skills</span>   ${o}${o}${o}${o}${o}${o}           Shows the skills I have <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>contact</span>  ${o}${o}${o}${o}${o}               Displays information of my contacts <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}           Redirects to this project's Github repository <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
@@ -49,6 +49,13 @@ const infoMsg = [
         </div>
     </div>`
 ];
+const projectsMsg = [
+    `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT HALTED)<br>`,
+    `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming clients from other clients made with C#<br>`,
+    `<a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank" class="item">Terminal Portfolio</a> ${o}${o}${o}${o}${o}${o}${o} A terminal styled portfolio made using HTML, CSS and Javascript`,
+    `<br><br>`,
+    `3 total file(s)<br>`
+]
 
 input.addEventListener('keydown', HandleCommands);
 
@@ -93,7 +100,7 @@ function ExecuteCommand(command) {
             break;
 
         case 'projects':
-
+            TermEcho(projectsMsg, 25);
             break;
 
         case 'skills':
