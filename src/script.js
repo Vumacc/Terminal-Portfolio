@@ -13,7 +13,7 @@ const helpCmds = [
     `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
-    `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name?`,
 ];
 const welcomeMsg = [
     `<span id="banner-glow">__ ${o}${o} __<br></span>`,
@@ -45,26 +45,24 @@ const infoMsg = [
             but I am also learning C++ and<br>
             Typescript aswell.
         </div>
-    </div><br>`
+    </div>`
 ];
 const projectsMsg = [
     `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT CURRENTLY HALTED)<br>`,
     `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming connections from other clients made with C#<br>`,
     `<a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank" class="item">Terminal Portfolio</a> ${o}${o}${o}${o}${o}${o}${o} A terminal styled portfolio made using HTML, CSS and Javascript`,
     `<br><br>`,
-    `3 total file(s)<br>`
+    `3 total file(s)`
 ];
 const emailMsg = [
-    `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`,
-    `<br>`
+    `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`
 ];
 const sourceMsg = [
     `Redirecting `,
     `to `,
     `Github...<br>`,
     `Click <a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank">here</a> `,
-    `if you have not been redirected.`,
-    `<br>`
+    `if you have not been redirected.`
 ];
 const whoAmIMsg = [
     `v`,
@@ -73,10 +71,47 @@ const whoAmIMsg = [
     `i`,
     `t`,
     `o`,
-    `r<br>`
+    `r`
 ];
 
 input.addEventListener('keydown', HandleCommands);
+
+const terminal = {
+    echo: function (text, delay) {
+        let index = 0;
+        content.innerHTML += '<br>';
+        terminal.hide();
+        terminal.disable();
+        const inputInterval = setInterval(function() {
+            content.innerHTML += text[index];
+            index++;
+            ScrollTo('bottom');
+            if (index === text.length) {
+                clearInterval(inputInterval);
+                content.innerHTML += '<br>'
+                terminal.show();
+                terminal.enable();
+                input.focus();
+            }
+        }, delay);
+    },
+
+    enable: function () {
+        document.getElementById('terminal-input').removeAttribute('disabled', '');
+    },
+
+    disable: function () {
+        document.getElementById('terminal-input').setAttribute('disabled', '');
+    },
+
+    show: function () {
+        document.getElementById('path').removeAttribute('class', 'invisible');
+    },
+
+    hide: function () {
+        document.getElementById('path').setAttribute('class', 'invisible');
+    }
+}
 
 function ScrollTo(direction) {
     if (direction === 'top') {
@@ -85,19 +120,6 @@ function ScrollTo(direction) {
     if (direction === 'bottom') {
         window.scrollTo(0, document.body.scrollHeight)
     }
-}
-
-function TermEcho(text, delay) {
-    let index = 0;
-    content.innerHTML += '<br>';
-    const inputInterval = setInterval(function() {
-        content.innerHTML += text[index];
-        index++;
-        ScrollTo('bottom');
-        if (index === text.length) {
-            clearInterval(inputInterval);
-        }
-    }, delay);
 }
 
 function ExecuteWelcomeCommandOnLoad() {
@@ -131,30 +153,33 @@ function HandleCommands(event) {
 }
 
 function ExecuteCommand(command) {
-    switch (command) {
+    const commandParts = command.split(' ');
+    const mainCommand = commandParts[0];
+
+    switch (mainCommand) {
         case 'help':
-            TermEcho(helpCmds, 25);
+            terminal.echo(helpCmds, 25);
             break;
 
         case 'welcome':
-            TermEcho(welcomeMsg, 25)
+            terminal.echo(welcomeMsg, 25)
             break;
 
         case 'info':
-            TermEcho(infoMsg, 25);
+            terminal.echo(infoMsg, 25);
             break;
 
         case 'projects':
-            TermEcho(projectsMsg, 25);
+            terminal.echo(projectsMsg, 25);
             break;
 
         case 'email':
             window.location.href = 'mailto:ays7.vumacc@gmail.com'
-            TermEcho(emailMsg, 25)
+            terminal.echo(emailMsg, 25)
             break;
 
         case 'source':
-            TermEcho(sourceMsg, 25)
+            terminal.echo(sourceMsg, 25)
             window.open('https://github.com/Vumacc/Terminal-Portfolio');
             break;
 
@@ -164,7 +189,36 @@ function ExecuteCommand(command) {
             break;
 
         case 'whoami':
-            TermEcho(whoAmIMsg, 25), false;
+            terminal.echo(whoAmIMsg, 25);
+            break;
+
+        case 'echo':
+            const commandArgs = commandParts.slice(1).join(' ');
+            if (commandArgs == '') {
+                terminal.echo('null', 25);
+                return;
+            };
+            terminal.echo(commandArgs, 25);
+            break;
+
+        // ---
+        // Funny testing commands
+        // ---
+
+        case 'enable':
+            terminal.enable();
+            break;
+
+        case 'disable':
+            terminal.disable();
+            break;
+
+        case 'show':
+            terminal.show();
+            break;
+
+        case 'hide':
+            terminal.hide();
             break;
 
         default:
