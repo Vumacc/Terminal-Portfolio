@@ -8,14 +8,12 @@ const helpCmds = [
     `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}               Displays the welcome message <br>`,
     `<span id='faint-glow-purple' class='term-purple'>info</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Information about myself <br>`,
     `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                   Some of my coding projects <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>skills</span>   ${o}${o}${o}${o}${o}${o}           Shows the skills I have <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>contact</span>  ${o}${o}${o}${o}${o}               Displays information of my contacts <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>email</span>    ${o}${o}${o}${o}${o}${o}${o}       Send me an email <br>`,
     `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}           Redirects to this project's Github repository <br>`,
     `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>sudo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   ??? <br>`
 ];
 const welcomeMsg = [
     `<span id="banner-glow">__ ${o}${o} __<br></span>`,
@@ -29,7 +27,7 @@ const welcomeMsg = [
     `Welcome to my portfolio. (Version 1.0.0) <br>`,
     `<br>`,
     `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
-    `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.`
+    `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`
 ];
 const infoMsg = [
     `<div class="flex info-border">
@@ -47,20 +45,46 @@ const infoMsg = [
             but I am also learning C++ and<br>
             Typescript aswell.
         </div>
-    </div>`
+    </div><br>`
 ];
 const projectsMsg = [
-    `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT HALTED)<br>`,
-    `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming clients from other clients made with C#<br>`,
+    `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT CURRENTLY HALTED)<br>`,
+    `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming connections from other clients made with C#<br>`,
     `<a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank" class="item">Terminal Portfolio</a> ${o}${o}${o}${o}${o}${o}${o} A terminal styled portfolio made using HTML, CSS and Javascript`,
     `<br><br>`,
     `3 total file(s)<br>`
-]
+];
+const emailMsg = [
+    `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`,
+    `<br>`
+];
+const sourceMsg = [
+    `Redirecting `,
+    `to `,
+    `Github...<br>`,
+    `Click <a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank">here</a> `,
+    `if you have not been redirected.`,
+    `<br>`
+];
+const whoAmIMsg = [
+    `v`,
+    `i`,
+    `s`,
+    `i`,
+    `t`,
+    `o`,
+    `r<br>`
+];
 
 input.addEventListener('keydown', HandleCommands);
 
-function ScrollToBottom() {
-    window.scrollTo(0, document.body.scrollHeight);
+function ScrollTo(direction) {
+    if (direction === 'top') {
+        window.scrollTo(top, 0)
+    }
+    if (direction === 'bottom') {
+        window.scrollTo(0, document.body.scrollHeight)
+    }
 }
 
 function TermEcho(text, delay) {
@@ -69,11 +93,32 @@ function TermEcho(text, delay) {
     const inputInterval = setInterval(function() {
         content.innerHTML += text[index];
         index++;
-        ScrollToBottom();
+        ScrollTo('bottom');
         if (index === text.length) {
             clearInterval(inputInterval);
         }
     }, delay);
+}
+
+function ExecuteWelcomeCommandOnLoad() {
+
+    let index = 0;
+    let text = welcomeMsg;
+    let delay = 25;
+
+    const inputInterval = setInterval(function() {
+        content.innerHTML += text[index];
+        index++;
+        if (index === text.length) {
+            clearInterval(inputInterval);
+        }
+    }, delay);
+
+    ScrollTo('top');
+    document.getElementById('terminal-welcome-loading-text').innerText = 'welcome';
+    document.getElementById('terminal').removeAttribute('class');
+    input.removeAttribute('disabled');
+    input.focus();
 }
 
 function HandleCommands(event) {
@@ -103,33 +148,33 @@ function ExecuteCommand(command) {
             TermEcho(projectsMsg, 25);
             break;
 
-        case 'skills':
-
-            break;
-
-        case 'contact':
-
+        case 'email':
+            window.location.href = 'mailto:ays7.vumacc@gmail.com'
+            TermEcho(emailMsg, 25)
             break;
 
         case 'source':
-            TermEcho('Redirecting to Github...', 15)
-            window.location.href = 'https://github.com/Vumacc/Terminal-Portfolio';
+            TermEcho(sourceMsg, 25)
+            window.open('https://github.com/Vumacc/Terminal-Portfolio');
             break;
 
         case 'clear':
-
+            content.innerHTML = ' ';
+            ScrollTo('top')
             break;
 
         case 'whoami':
-            TermEcho(`visitor`, 15)
-            break;
-
-        case 'sudo':
-
+            TermEcho(whoAmIMsg, 25), false;
             break;
 
         default:
-            content.innerHTML += `Unrecognised command: \`${command}\``;
+            if (command === '') {
+                ScrollTo('bottom');
+                return;
+            } else {
+                content.innerHTML += `<br>Unrecognised command: \`${command}\`<br>`;
+                ScrollTo('bottom');
+            }
             break;
     }
 }

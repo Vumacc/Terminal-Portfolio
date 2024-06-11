@@ -8,6 +8,9 @@ body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    position: relative;
 }
 
 p {
@@ -43,6 +46,11 @@ a:hover {
 @keyframes blink {
     from { opacity: 1; }
     to { opacity: 0; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .term-green, #term-green {
@@ -81,6 +89,10 @@ a:hover {
     display: flex;
 }
 
+.invisible, #invisible {
+    opacity: 0;
+}
+
 #main-wrapper {
 
     display: inline-block;
@@ -98,16 +110,20 @@ a:hover {
 
 #terminal {
     display: flex;
+    margin-top: 17px;
 }
 
-#terminal-input {
+#path {
+    margin: 0;
+}
+
+#terminal-input, .terminal-input {
     background-color: transparent;
 
     border: 0px;
     appearance: none;
     outline-width: 0;
 
-    margin-top: 15px;
     margin-left: 10px;
 
     font-family: monospace;
@@ -118,17 +134,23 @@ a:hover {
 #cursor {
     position: relative;
 }
+
 #cursor i {
-    position: absolute;
     width: 10px;
     height: 80%;
-    background-color: transparent;
+    position: absolute;
     left: 5px;
     top: 10%;
+
+    margin-top: 0;
+
+    opacity: 1;
+    background-color: transparent;
+
     animation-name: blink;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    opacity: 1;
+
 }
 
 #cursor input:focus + i {
@@ -137,16 +159,17 @@ a:hover {
 }
 
 #bottom {
-    padding-bottom: 100px;
+    padding-bottom: 120px;
 }
 
 .info-border {
+    width: 750px;
+    padding: 10px;
+
     border: 2px;
     border-color: #27293e;
     border-style: solid;
     border-radius: 20px;
-    padding: 10px;
-    width: 750px;
 }
 
 .info-left {
