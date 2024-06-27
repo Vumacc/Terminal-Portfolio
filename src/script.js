@@ -141,7 +141,7 @@ const people = {
                     <h1>ZAYNEDRIFT</h1>
                     <h3>Competitive dumbass</h3>
                     <br>
-                    <span class="quote">"Quote go here"</span>
+                    <span class="quote">"Miau :3 ich bin eine katze und ich hab ein verlangen nach <b>USB MIKRO TYP B GERÄTEN</b>"</span>
                 </div>
             </div>`
         ]
