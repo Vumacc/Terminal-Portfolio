@@ -1,5 +1,6 @@
 /*
 Note : I was a dumbass and used IDs instead of classes in `index.html`, I've gone too far to change it now so it will stay like that for now.
+Note 2 : Trust me, I'll do it eventually.
 */
 
 body {
@@ -11,6 +12,18 @@ body {
     padding: 0;
     margin: 0;
     position: relative;
+}
+
+h1 {
+    margin: 0;
+    font-size: 45px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h3 {
+    margin: 0;
+    color: #7f848a;
+    font-size: 17px;
 }
 
 p {
@@ -25,6 +38,22 @@ a {
 a:hover {
     color: #ff9413;
     text-decoration: underline;
+    cursor: pointer;
+}
+
+a:active {
+    color: #181926;
+    background-color: #ff9413;
+}
+
+pages-item {
+    color: #ff9413;
+    text-decoration-style: dashed !important;
+}
+
+pages-item:hover {
+    color: #ff9413;
+    text-decoration: dashed !important;
 }
 
 ::-webkit-scrollbar {
@@ -43,14 +72,19 @@ a:hover {
     background: #242438;
 }
 
+::selection {
+    color: #181926;
+    background-color: #dae3ec;
+}
+
+::-moz-selection {
+    color: #181926;
+    background-color: #dae3ec;
+}
+
 @keyframes blink {
     from { opacity: 1; }
     to { opacity: 0; }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
 
 .term-green, #term-green {
@@ -93,6 +127,12 @@ a:hover {
     opacity: 0;
 }
 
+.quote {
+    font-size: 25px;
+    font-family:cursive;
+    font-style: italic;
+}
+
 #main-wrapper {
 
     display: inline-block;
@@ -117,6 +157,10 @@ a:hover {
     margin: 0;
 }
 
+#terminal-content {
+    width: 1000px;
+}
+
 #terminal-input, .terminal-input {
     background-color: transparent;
 
@@ -129,6 +173,11 @@ a:hover {
     font-family: monospace;
     font-size: 17px;
     color: #dae3ec;
+}
+
+#terminal-input {
+    outline: none;
+    outline-width: 0px;
 }
 
 #cursor {
