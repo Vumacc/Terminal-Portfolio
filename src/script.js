@@ -41,7 +41,7 @@ const welcomeMsg = [
     `</span>`,
     `<br>`,
     `<br>`,
-    `Welcome to my portfolio. (Version 1.0.0) <br>`,
+    `Welcome to my portfolio. (Version 1.0.8) <br>`,
     `<br>`,
     `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
     `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`,
