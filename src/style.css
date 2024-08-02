@@ -4,6 +4,7 @@ Note 2 : Trust me, I'll do it eventually.
 */
 
 body {
+    color: #dae3ec;
     background-color: #181926;
     font-family: monospace;
     height: 100%;
@@ -17,7 +18,7 @@ body {
 h1 {
     margin: 0;
     font-size: 45px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 h3 {
@@ -83,58 +84,75 @@ pages-item:hover {
 }
 
 @keyframes blink {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
 }
 
-.term-green, #term-green {
+.term-green,
+#term-green {
     color: #05ce91;
 }
 
-.term-orange, #term-orange {
+.term-orange,
+#term-orange {
     color: #ff9413;
 }
 
-.term-purple, #term-purple {
+.term-purple,
+#term-purple {
     color: #e04baf;
 }
 
-.banner-glow, #banner-glow {
+.banner-glow,
+#banner-glow {
     text-shadow: 0px 0px 5px #dae3ec, 0px 0px 10px #dae3ec;
 }
 
-.faint-glow-white, #faint-glow-white {
-    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 50px #dae3ec
+.faint-glow-white,
+#faint-glow-white {
+    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 50px #dae3ec;
 }
 
-.faint-glow-green, #faint-glow-green {
+.faint-glow-green,
+#faint-glow-green {
     text-shadow: 0px 0px 5px #05ce91, 0px 0px 50px #05ce91;
 }
 
-.faint-glow-orange, #faint-glow-orange {
+.faint-glow-orange,
+#faint-glow-orange {
     text-shadow: 0px 0px 5px #ff9413, 0px 0px 50px #ff9413;
 }
 
-.faint-glow-purple, #faint-glow-purple {
+.faint-glow-purple,
+#faint-glow-purple {
     text-shadow: 0px 0px 5px #e04baf, 0px 0px 50px #e04baf;
 }
 
-.flex, #flex {
+.flex,
+#flex {
     display: flex;
 }
 
-.invisible, #invisible {
+.invisible,
+#invisible {
     opacity: 0;
 }
 
 .quote {
     font-size: 25px;
-    font-family:cursive;
+    font-family: cursive;
     font-style: italic;
 }
 
-#main-wrapper {
+.pnf-main-wrapper {
+    text-align: center;
+}
 
+#main-wrapper {
     display: inline-block;
     background-color: transparent;
 
@@ -161,7 +179,8 @@ pages-item:hover {
     width: 1000px;
 }
 
-#terminal-input, .terminal-input {
+#terminal-input,
+.terminal-input {
     background-color: transparent;
 
     border: 0px;
@@ -199,7 +218,6 @@ pages-item:hover {
     animation-name: blink;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-
 }
 
 #cursor input:focus + i {

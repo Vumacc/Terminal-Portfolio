@@ -1,7 +1,19 @@
 var input = document.getElementById('terminal-input');
 var content = document.getElementById('terminal-content');
 
-const o = '&nbsp;'
+const o = '&nbsp;';
+const commandList = [
+    'help',
+    'welcome',
+    'info',
+    'projects',
+    'email',
+    'source',
+    'clear',
+    'whoami',
+    'echo',
+    'pages',
+];
 const helpCmds = [
     `<strong>------ Utility ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
@@ -17,7 +29,7 @@ const helpCmds = [
     `<span id='faint-glow-purple' class='term-purple'>echo</span>    ${o}${o}${o}${o}${o}${o}${o}${o}      Will repeat what you say <br>`,
     `<span id='faint-glow-purple' class='term-purple'>pages</span>    ${o}${o}${o}${o}${o}${o}${o}         More knicknacks`,
 ];
-const devHelpCmds = [
+const testHelpCmds = [
     // TODO :: Add all the testing commands here
 ];
 const welcomeMsg = [
@@ -32,57 +44,49 @@ const welcomeMsg = [
     `Welcome to my portfolio. (Version 1.0.0) <br>`,
     `<br>`,
     `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
-    `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`
+    `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`,
 ];
 const infoMsg = [
     `<div class="flex info-border">
         <div class="info-left">
-            <img src="src/assets/pfp.jpg" width="200" height="200" style="margin-right: 20px; border-radius: 20px;">
+            <img src="https://cdn.discordapp.com/avatars/1247240273218768898/a97fefc31e28505fcef35668ec96f651.webp?size=4096" width="200" height="200" style="margin-right: 20px; border-radius: 20px;">
         </div>
         <div class="info-right">
             <br>
             VUMACC<br>
             ----------<br>
-            Hello! I'm a self-taught web and app<br>
-            developer.
+            Hello! I'm a self-taught web developer<br>
+            and programmer.
             <br><br>
             I mainly use Javascript and C#,<br>
             but I am also learning C++ and<br>
             Typescript aswell.
         </div>
-    </div>`
+    </div>`,
 ];
 const projectsMsg = [
     `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT CURRENTLY HALTED)<br>`,
     `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming connections from other clients made with C#<br>`,
     `<a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank" class="item">Terminal Portfolio</a> ${o}${o}${o}${o}${o}${o}${o} A terminal styled portfolio made using HTML, CSS and Javascript`,
     `<br><br>`,
-    `3 total file(s)`
+    `3 total file(s)`,
 ];
 const emailMsg = [
-    `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`
+    `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`,
 ];
 const sourceMsg = [
     `Redirecting `,
     `to `,
     `Github...<br>`,
     `Click <a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank">here</a> `,
-    `if you have not been redirected.`
+    `if you have not been redirected.`,
 ];
-const whoAmIMsg = [
-    `v`,
-    `i`,
-    `s`,
-    `i`,
-    `t`,
-    `o`,
-    `r`
-];
+const whoAmIMsg = [`v`, `i`, `s`, `i`, `t`, `o`, `r`];
 const pagesMsg = [
     `<a href="/" target="_blank" class="item">gui</a>   ${o}${o}${o}${o}${o}${o}${o}${o}${o}   Redirects to my other portfolio (This link will eventually work) <br>`,
     `<a onclick="pages.quotes()" class="item pages-item"><u style="text-decoration-style: dashed;">quotes</u></a>   ${o}${o}${o}${o}${o}${o}   Some quotes from cool people <br>`,
-    `<a onclick="pages.settings()" class="item"><u style="text-decoration-style: dashed;">settings</u></a>   ${o}${o}${o}${o}   It's just some settings`
-]
+    `<a onclick="pages.settings()" class="item"><u style="text-decoration-style: dashed;">settings</u></a>   ${o}${o}${o}${o}   It's just some settings`,
+];
 
 input.addEventListener('keydown', HandleCommands);
 
@@ -101,11 +105,11 @@ const people = {
                     <br>
                     <span class="quote">"vumacc is 100% a homosexual"</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -122,11 +126,11 @@ const people = {
                     <br>
                     <span class="quote">"my father came back with the milk unlike Vumacc's father"</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -143,11 +147,11 @@ const people = {
                     <br>
                     <span class="quote">"Miau :3 ich bin eine katze und ich hab ein verlangen nach <b>USB MIKRO TYP B GERÄTEN</b>"</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -164,11 +168,11 @@ const people = {
                     <br>
                     <span class="quote">"Very cool"</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -185,11 +189,11 @@ const people = {
                     <br>
                     <span class="quote">"I rizz, I mew, I edge, but when I see you, I goon."</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -206,11 +210,11 @@ const people = {
                     <br>
                     <span class="quote">"ok"</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
@@ -227,16 +231,19 @@ const people = {
                     <br>
                     <span class="quote">"Make money."</span>
                 </div>
-            </div>`
-        ]
+            </div>`,
+        ];
         let str = content.innerHTML;
-        let result = str.slice(0, -566);
-        content.innerHTML = await result
+        let result = str.slice(0, -674);
+        content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
-    }
-}
+    },
+};
 const pages = {
+    return: function () {
+        alert('Lorem Ipsum');
+    },
     quotes: async function () {
         const quotesMsg = [
             `<a onclick="people.dontmindme()"><u style="text-decoration-style: dashed;">Dontmindme<br></u></a>`,
@@ -245,41 +252,54 @@ const pages = {
             `<a onclick="people.creator()"><u style="text-decoration-style: dashed;">Creator<br></u></a>`,
             `<a onclick="people.shadow()"><u style="text-decoration-style: dashed;">Shadow<br></u></a>`,
             `<a onclick="people.maniq()"><u style="text-decoration-style: dashed;">Maniq<br></u></a>`,
-            `<a onclick="people.dumby()"><u style="text-decoration-style: dashed;">Dumby</u></a>`
+            `<a onclick="people.dumby()"><u style="text-decoration-style: dashed;">Dumby</u></a>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -480);
+        let result = str.slice(0, -477);
         content.innerHTML = await result;
         terminal.echo(quotesMsg, 25, false, true, true);
         ScrollTo('bottom');
     },
 
     settings: async function () {
-        const settingsPage = [
-            `Settings page is in development`
-        ];
+        const settingsPage = [`Settings page is in development :3`];
         let str = content.innerHTML;
-        let result = str.slice(0, -480);
+        let result = str.slice(0, -477);
         content.innerHTML = await result;
         terminal.echo(settingsPage, 25, false, true, true);
         ScrollTo('bottom');
-    }
-}
+    },
+};
 
 const terminal = {
-    echo: async function (text, delay, startNewLine=true, endNewLine=true, isAwaited=false, inputField=content) {
+    echo: async function (
+        text,
+        delay,
+        startNewLine = true,
+        endNewLine = true,
+        isAwaited = false,
+        inputField = content
+    ) {
         let index = 0;
-        if (startNewLine) { inputField.innerHTML += '<br>' }
+        if (startNewLine) {
+            inputField.innerHTML += '<br>';
+        }
         terminal.hide();
         terminal.disable();
-        const inputInterval = setInterval(async function() {
-            if (isAwaited) { inputField.innerHTML += await text[index] }
-            if (!isAwaited) { inputField.innerHTML += text[index] }
+        const inputInterval = setInterval(async function () {
+            if (isAwaited) {
+                inputField.innerHTML += await text[index];
+            }
+            if (!isAwaited) {
+                inputField.innerHTML += text[index];
+            }
             index++;
             ScrollTo('bottom');
             if (index === text.length) {
                 clearInterval(inputInterval);
-                if (endNewLine) { content.innerHTML += '<br>' }
+                if (endNewLine) {
+                    content.innerHTML += '<br>';
+                }
                 terminal.show();
                 terminal.enable();
                 input.focus();
@@ -296,7 +316,9 @@ const terminal = {
     },
 
     enable: function () {
-        document.getElementById('terminal-input').removeAttribute('disabled', '');
+        document
+            .getElementById('terminal-input')
+            .removeAttribute('disabled', '');
     },
 
     disable: function () {
@@ -309,15 +331,15 @@ const terminal = {
 
     hide: function () {
         document.getElementById('path').setAttribute('class', 'invisible');
-    }
-}
+    },
+};
 
 function ScrollTo(direction) {
     if (direction === 'top') {
-        window.scrollTo(top, 0)
+        window.scrollTo(top, 0);
     }
     if (direction === 'bottom') {
-        window.scrollTo(0, document.body.scrollHeight)
+        window.scrollTo(0, document.body.scrollHeight);
     }
 }
 
@@ -328,12 +350,11 @@ function FocusInput() {
 }
 
 function ExecuteWelcomeCommandOnLoad() {
-
     let index = 0;
     let text = welcomeMsg;
     let delay = 25;
 
-    const inputInterval = setInterval(function() {
+    const inputInterval = setInterval(function () {
         content.innerHTML += text[index];
         index++;
         if (index === text.length) {
@@ -342,19 +363,66 @@ function ExecuteWelcomeCommandOnLoad() {
     }, delay);
 
     ScrollTo('top');
-    document.getElementById('terminal-welcome-loading-text').innerText = 'welcome';
+    document.getElementById('terminal-welcome-loading-text').innerText =
+        'welcome';
     document.getElementById('terminal').removeAttribute('class');
     input.removeAttribute('disabled');
     input.focus();
 }
 
 function HandleCommands(event) {
-    if(event.key === 'Enter') {
+    if (event.key === 'Enter') {
         const command = input.value.trim();
         input.value = '';
         content.innerHTML += `<br><span id="term-orange">visitor</span>@<span id="term-green">github.vumacc.io</span>:~$ ${command} <br>`;
         ExecuteCommand(command);
     }
+}
+
+function getClosestCommand(command, commandList) {
+    let closestCommand = '';
+    let minDistance = Infinity;
+
+    for (const cmd of commandList) {
+        const distance = levenshteinDistance(
+            command.toLowerCase(),
+            cmd.toLowerCase()
+        );
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestCommand = cmd;
+        }
+    }
+
+    return closestCommand;
+}
+
+function levenshteinDistance(a, b) {
+    const matrix = [];
+
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) === a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(
+                    matrix[i - 1][j - 1] + 1,
+                    matrix[i][j - 1] + 1,
+                    matrix[i - 1][j] + 1
+                );
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
 }
 
 function ExecuteCommand(command) {
@@ -367,7 +435,7 @@ function ExecuteCommand(command) {
             break;
 
         case 'welcome':
-            terminal.echo(welcomeMsg, 25)
+            terminal.echo(welcomeMsg, 25);
             break;
 
         case 'info':
@@ -379,18 +447,18 @@ function ExecuteCommand(command) {
             break;
 
         case 'email':
-            window.location.href = 'mailto:ays7.vumacc@gmail.com'
-            terminal.echo(emailMsg, 25)
+            window.location.href = 'mailto:ays7.vumacc@gmail.com';
+            terminal.echo(emailMsg, 25);
             break;
 
         case 'source':
-            terminal.echo(sourceMsg, 25)
+            terminal.echo(sourceMsg, 25);
             window.open('https://github.com/Vumacc/Terminal-Portfolio');
             break;
 
         case 'clear':
             content.innerHTML = '';
-            ScrollTo('top')
+            ScrollTo('top');
             break;
 
         case 'whoami':
@@ -402,12 +470,12 @@ function ExecuteCommand(command) {
             if (commandArgs == '') {
                 terminal.echo('null', 25);
                 return;
-            };
+            }
             terminal.echo(commandArgs, 25);
             break;
 
         case 'pages':
-            terminal.echo(pagesMsg, 25, true, true)
+            terminal.echo(pagesMsg, 25, true, true);
             break;
 
         // ---
@@ -444,7 +512,11 @@ function ExecuteCommand(command) {
                 ScrollTo('bottom');
                 return;
             } else {
+                const closestCommand = getClosestCommand(command, commandList);
                 content.innerHTML += `<br>Unrecognised command: \`${command}\`<br>`;
+                if (closestCommand) {
+                    content.innerHTML += `Did you mean \`${closestCommand}\`?<br>`;
+                }
                 ScrollTo('bottom');
             }
             break;
