@@ -29,6 +29,11 @@ h3 {
 
 p {
     line-height: 120%;
+    margin: 0;
+}
+
+pre {
+    margin: 0;
 }
 
 a {
@@ -90,6 +95,11 @@ pages-item:hover {
     to {
         opacity: 0;
     }
+}
+
+.term-grey,
+#term-grey {
+    color: #dae3ec8a;
 }
 
 .term-green,
@@ -227,24 +237,4 @@ pages-item:hover {
 
 #bottom {
     padding-bottom: 120px;
-}
-
-.info-border {
-    width: 750px;
-    padding: 10px;
-
-    border: 2px;
-    border-color: #27293e;
-    border-style: solid;
-    border-radius: 20px;
-}
-
-.info-left {
-    background-color: transparent;
-}
-
-.info-right {
-    background-color: transparent;
-    padding-left: 85px;
-    text-align: center;
 }

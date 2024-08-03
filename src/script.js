@@ -5,10 +5,11 @@ const o = '&nbsp;';
 const commandList = [
     'help',
     'welcome',
-    'info',
+    'aboutme',
     'projects',
     'email',
     'source',
+    'github',
     'clear',
     'whoami',
     'echo',
@@ -18,19 +19,17 @@ const helpCmds = [
     `<strong>------ Utility ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
     `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}               Displays the welcome message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>info</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Information about myself <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>aboutme</span>  ${o}${o}${o}${o}${o}               Information about myself <br>`,
     `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                   Some of my coding projects <br>`,
     `<span id='faint-glow-purple' class='term-purple'>email</span>    ${o}${o}${o}${o}${o}${o}${o}       Send me an email <br>`,
     `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}           Redirects to this project's Github repository <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>github</span>   ${o}${o}${o}${o}${o}${o}           Redirects to my Github account <br>`,
     `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
     `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>echo</span>    ${o}${o}${o}${o}${o}${o}${o}${o}      Will repeat what you say <br>`,
+    `<span id='faint-glow-purple' class='term-purple'>echo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}     Will repeat what you say <br>`,
     `<span id='faint-glow-purple' class='term-purple'>pages</span>    ${o}${o}${o}${o}${o}${o}${o}         More knicknacks`,
-];
-const testHelpCmds = [
-    // TODO :: Add all the testing commands here
 ];
 const welcomeMsg = [
     `<span id="banner-glow">__ ${o}${o} __<br></span>`,
@@ -41,28 +40,49 @@ const welcomeMsg = [
     `</span>`,
     `<br>`,
     `<br>`,
-    `Welcome to my portfolio. (Version 1.0.8) <br>`,
+    `Welcome to my portfolio. (Version 1.0.9) <br>`,
     `<br>`,
     `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
     `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`,
 ];
 const infoMsg = [
-    `<div class="flex info-border">
-        <div class="info-left">
-            <img src="https://cdn.discordapp.com/avatars/1247240273218768898/a97fefc31e28505fcef35668ec96f651.webp?size=4096" width="200" height="200" style="margin-right: 20px; border-radius: 20px;">
-        </div>
-        <div class="info-right">
-            <br>
-            VUMACC<br>
-            ----------<br>
-            Hello! I'm a self-taught web developer<br>
-            and programmer.
-            <br><br>
-            I mainly use Javascript and C#,<br>
-            but I am also learning C++ and<br>
-            Typescript aswell.
-        </div>
-    </div>`,
+    `<b>Hiya, I'm <i><span id='faint-glow-white'><u>Vumacc</u></i></span>!</b>`,
+    `<br><br>`,
+
+    `<span id="faint-glow-white">My fields of interest are:</span>`,
+    `<pre>  ├─ Frontend web development</pre>`,
+    `<pre>  └─ Software development</pre>`,
+    `<br>`,
+
+    `<span id="faint-glow-white">About me:</span>`,
+    `<pre>  ├─ Hello there! I am primarily a web developer,
+  │  but I do also dabble with a bit of software development.</pre>`,
+    `<pre>  │ </pre>`,
+    `<pre>  ├─ I love learning new technologies and using</pre>`,
+    `<pre>  │  it to improve my skills.</pre>`,
+    `<pre>  │</pre>`,
+    `<pre>  ├─ You can learn about some of my projects
+  │  using the <span class="faint-glow-green term-green">'projects'</span> command.</pre>`,
+    `<pre>  │</pre>`,
+    `<pre>  ├─ Check out my Github account to see more of what I've made.</pre>`,
+    `<pre>  │    <span id="term-grey"><i>*Use the <span class="faint-glow-green">'github'</span> command to see my profile!</i></span></pre>`,
+    `<pre>  │</pre>`,
+    `<pre>  └─ Contact me at <a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>.</pre>`,
+    `<br>`,
+
+    `<span class="faint-glow-white">Technologies I use:</span>`,
+    `<pre>  ├─ <a href="https://github.com">Github</a></pre>`,
+    `<pre>  ├─ <a href="https://git-scm.com/">Git</a></pre>`,
+    `<pre>  ├─ <a href="https://simple.wikipedia.org/wiki/JavaScript">Javascript</a></pre>`,
+    `<pre>  ├─ <a href="https://www.typescriptlang.org/">Typescript</a></pre>`,
+    `<pre>  ├─ <a href="https://en.wikipedia.org/wiki/HTML">HTML</a></pre>`,
+    `<pre>  ├─ <a href="https://en.wikipedia.org/wiki/CSS">CSS</a></pre>`,
+    `<pre>  ├─ <a href="https://en.wikipedia.org/wiki/C%2B%2B">C/C++</a></pre>`,
+    `<pre>  ├─ <a href="https://dotnet.microsoft.com/en-us/languages/csharp">C#</a></pre>`,
+    `<pre>  ├─ <a href="https://deno.com/">Deno</a></pre>`,
+    `<pre>  ├─ <a href="https://nodejs.org/">Node</a></pre>`,
+    `<pre>  ├─ <a href="https://discord.js.org/">Discord.js</a></pre>`,
+    `<pre>  └─ <a href="https://firebase.google.com/">Firebase</a></pre>`,
 ];
 const projectsMsg = [
     `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT CURRENTLY HALTED)<br>`,
@@ -81,14 +101,19 @@ const sourceMsg = [
     `Click <a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank">here</a> `,
     `if you have not been redirected.`,
 ];
+const githubMsg = [
+    `Redirecting `,
+    `to `,
+    `Github...<br>`,
+    `Click <a href="https://github.com/Vumacc/" target="_blank">here</a> `,
+    `if you have not been redirected.`,
+];
 const whoAmIMsg = [`v`, `i`, `s`, `i`, `t`, `o`, `r`];
 const pagesMsg = [
     `<a href="/" target="_blank" class="item">gui</a>   ${o}${o}${o}${o}${o}${o}${o}${o}${o}   Redirects to my other portfolio (This link will eventually work) <br>`,
     `<a onclick="pages.quotes()" class="item pages-item"><u style="text-decoration-style: dashed;">quotes</u></a>   ${o}${o}${o}${o}${o}${o}   Some quotes from cool people <br>`,
     `<a onclick="pages.settings()" class="item"><u style="text-decoration-style: dashed;">settings</u></a>   ${o}${o}${o}${o}   It's just some settings`,
 ];
-
-input.addEventListener('keydown', HandleCommands);
 
 const people = {
     msg: [],
@@ -108,7 +133,7 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -129,7 +154,7 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -143,14 +168,14 @@ const people = {
                 <div class="info-right">
                     <br>
                     <h1>ZAYNEDRIFT</h1>
-                    <h3>Competitive dumbass</h3>
+                    <h3>Absolutely Mentally Insane</h3>
                     <br>
                     <span class="quote">"Miau :3 ich bin eine katze und ich hab ein verlangen nach <b>USB MIKRO TYP B GERÄTEN</b>"</span>
                 </div>
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -171,7 +196,7 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -192,7 +217,7 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -213,7 +238,7 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
@@ -234,17 +259,14 @@ const people = {
             </div>`,
         ];
         let str = content.innerHTML;
-        let result = str.slice(0, -674);
+        let result = str.slice(0, -641);
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
     },
 };
 const pages = {
-    return: function () {
-        alert('Lorem Ipsum');
-    },
-    quotes: async function () {
+    quotes: async function (slice = true) {
         const quotesMsg = [
             `<a onclick="people.dontmindme()"><u style="text-decoration-style: dashed;">Dontmindme<br></u></a>`,
             `<a onclick="people.anshiuru()"><u style="text-decoration-style: dashed;">Anshiuru<br></u></a>`,
@@ -254,23 +276,26 @@ const pages = {
             `<a onclick="people.maniq()"><u style="text-decoration-style: dashed;">Maniq<br></u></a>`,
             `<a onclick="people.dumby()"><u style="text-decoration-style: dashed;">Dumby</u></a>`,
         ];
-        let str = content.innerHTML;
-        let result = str.slice(0, -477);
-        content.innerHTML = await result;
+        if (slice) {
+            let str = content.innerHTML;
+            let result = str.slice(0, -477);
+            content.innerHTML = await result;
+        }
         terminal.echo(quotesMsg, 25, false, true, true);
         ScrollTo('bottom');
     },
 
-    settings: async function () {
-        const settingsPage = [`Settings page is in development :3`];
-        let str = content.innerHTML;
-        let result = str.slice(0, -477);
-        content.innerHTML = await result;
-        terminal.echo(settingsPage, 25, false, true, true);
+    settings: async function (slice = true) {
+        const settingsPage = [`Placeholder Text :3`];
+        if (slice) {
+            let str = content.innerHTML;
+            let result = str.slice(0, -477);
+            content.innerHTML = await result;
+        }
+        terminal.echo(settingsPage, 25, false, false, true);
         ScrollTo('bottom');
     },
 };
-
 const terminal = {
     echo: async function (
         text,
@@ -334,6 +359,8 @@ const terminal = {
     },
 };
 
+input.addEventListener('keydown', HandleCommands);
+
 function ScrollTo(direction) {
     if (direction === 'top') {
         window.scrollTo(top, 0);
@@ -374,7 +401,7 @@ function HandleCommands(event) {
     if (event.key === 'Enter') {
         const command = input.value.trim();
         input.value = '';
-        content.innerHTML += `<br><span id="term-orange">visitor</span>@<span id="term-green">github.vumacc.io</span>:~$ ${command} <br>`;
+        content.innerHTML += `<br><span id="term-orange">visitor</span>@<span id="term-green">vumack.web.app</span>:~$ ${command} <br>`;
         ExecuteCommand(command);
     }
 }
@@ -438,7 +465,7 @@ function ExecuteCommand(command) {
             terminal.echo(welcomeMsg, 25);
             break;
 
-        case 'info':
+        case 'aboutme':
             terminal.echo(infoMsg, 25);
             break;
 
@@ -454,6 +481,11 @@ function ExecuteCommand(command) {
         case 'source':
             terminal.echo(sourceMsg, 25);
             window.open('https://github.com/Vumacc/Terminal-Portfolio');
+            break;
+
+        case 'github':
+            terminal.echo(githubMsg, 25);
+            window.open('https://github.com/Vumacc/');
             break;
 
         case 'clear':
@@ -476,6 +508,16 @@ function ExecuteCommand(command) {
 
         case 'pages':
             terminal.echo(pagesMsg, 25, true, true);
+            break;
+
+        case 'quotes':
+            content.innerHTML += '<br>';
+            pages.quotes(false);
+            break;
+
+        case 'settings':
+            content.innerHTML += '<br>';
+            pages.settings(false);
             break;
 
         // ---
