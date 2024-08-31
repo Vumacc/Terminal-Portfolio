@@ -1,12 +1,5 @@
 # Terminal Portfolio
 
-## Table of Contents
-- [About the repo](#about-the-repo)
-- [Trello Board](#trello-board)
-- [Support and License](#support-and-license)
-    - [Support](#support)
-    - [License](#license)
-
 ## About The Repo
 A terminal portfolio made from scratch using HTML, CSS, and Javascript - No libraries! \
 The entire idea to make something like this came from [DonDoesStuff](https://github.com/DonDoesStuff), please make sure to check them out as this entire project wouldn't exist if it weren't for them.

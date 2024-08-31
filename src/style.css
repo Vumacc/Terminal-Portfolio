@@ -1,11 +1,17 @@
-/*
-Note : I was a dumbass and used IDs instead of classes in `index.html`, I've gone too far to change it now so it will stay like that for now.
-Note 2 : Trust me, I'll do it eventually.
-*/
+:root {
+    --main-dark: #181926;
+    --main-light: #ebeef5;
+
+    --main-white: #dae3ec;
+    --main-grey: #5d5d5f;
+    --main-black: #1c1b1b;
+    --main-orange: #ff9413;
+    --main-blue: #538bb9;
+}
 
 body {
-    color: #dae3ec;
-    background-color: #181926;
+    color: var(--main-white);
+    background-color: var(--main-dark);
     font-family: monospace;
     height: 100%;
     width: 100%;
@@ -37,28 +43,35 @@ pre {
 }
 
 a {
-    color: #ff9413;
+    color: var(--main-orange);
     text-decoration-style: dashed;
 }
 
 a:hover {
-    color: #ff9413;
+    color: var(--main-orange);
     text-decoration: underline;
     cursor: pointer;
 }
 
 a:active {
-    color: #181926;
-    background-color: #ff9413;
+    color: var(--main-dark);
+    background-color: var(--main-orange);
+    text-decoration: none;
+}
+
+a.active-theme {
+    background-color: var(--main-orange);
+    color: var(--main-dark);
+    text-decoration: none;
 }
 
 pages-item {
-    color: #ff9413;
+    color: var(--main-orange);
     text-decoration-style: dashed !important;
 }
 
 pages-item:hover {
-    color: #ff9413;
+    color: var(--main-orange);
     text-decoration: dashed !important;
 }
 
@@ -79,13 +92,13 @@ pages-item:hover {
 }
 
 ::selection {
-    color: #181926;
-    background-color: #dae3ec;
+    color: #2e2f48;
+    background-color: var(--main-white);
 }
 
 ::-moz-selection {
-    color: #181926;
-    background-color: #dae3ec;
+    color: #2e2f48;
+    background-color: var(--main-white);
 }
 
 @keyframes blink {
@@ -97,59 +110,54 @@ pages-item:hover {
     }
 }
 
-.term-grey,
-#term-grey {
-    color: #dae3ec8a;
+.term-grey {
+    color: var(--main-white) 8a;
 }
 
-.term-green,
-#term-green {
+.term-green {
     color: #05ce91;
 }
 
-.term-orange,
-#term-orange {
-    color: #ff9413;
+.term-orange {
+    color: var(--main-orange);
 }
 
-.term-purple,
-#term-purple {
+.term-purple {
     color: #e04baf;
 }
 
-.banner-glow,
-#banner-glow {
-    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 10px #dae3ec;
+.banner-glow {
+    text-shadow: 0px 0px 5px var(--main-white), 0px 0px 10px var(--main-white);
 }
 
-.faint-glow-white,
-#faint-glow-white {
-    text-shadow: 0px 0px 5px #dae3ec, 0px 0px 50px #dae3ec;
+.faint-glow-white {
+    text-shadow: 0px 0px 5px var(--main-white), 0px 0px 50px var(--main-white);
 }
 
-.faint-glow-green,
-#faint-glow-green {
+.faint-glow-green {
     text-shadow: 0px 0px 5px #05ce91, 0px 0px 50px #05ce91;
 }
 
-.faint-glow-orange,
-#faint-glow-orange {
-    text-shadow: 0px 0px 5px #ff9413, 0px 0px 50px #ff9413;
+.faint-glow-orange {
+    text-shadow: 0px 0px 5px var(--main-orange), 0px 0px 50px var(--main-orange);
 }
 
-.faint-glow-purple,
-#faint-glow-purple {
+.faint-glow-purple {
     text-shadow: 0px 0px 5px #e04baf, 0px 0px 50px #e04baf;
 }
 
-.flex,
-#flex {
+.flex {
     display: flex;
 }
 
-.invisible,
-#invisible {
+.invisible {
     opacity: 0;
+}
+
+.info-right {
+    text-align: center;
+    padding: 0;
+    width: 55%;
 }
 
 .quote {
@@ -162,7 +170,7 @@ pages-item:hover {
     text-align: center;
 }
 
-#main-wrapper {
+.main-wrapper {
     display: inline-block;
     background-color: transparent;
 
@@ -172,7 +180,7 @@ pages-item:hover {
     padding-top: 0px;
     padding-left: 25px;
 
-    color: #dae3ec;
+    color: var(--main-white);
     font-size: 17px;
 }
 
@@ -181,7 +189,7 @@ pages-item:hover {
     margin-top: 17px;
 }
 
-#path {
+.path {
     margin: 0;
 }
 
@@ -190,7 +198,7 @@ pages-item:hover {
 }
 
 #terminal-input,
-.terminal-input {
+#terminal-input {
     background-color: transparent;
 
     border: 0px;
@@ -201,7 +209,7 @@ pages-item:hover {
 
     font-family: monospace;
     font-size: 17px;
-    color: #dae3ec;
+    color: var(--main-white);
 }
 
 #terminal-input {
@@ -235,6 +243,21 @@ pages-item:hover {
     outline: 0;
 }
 
-#bottom {
+.bottom {
     padding-bottom: 120px;
+}
+
+input[type='checkbox'] {
+    height: 14px;
+    width: 14px;
+    opacity: 0.35;
+}
+
+input[type='checkbox']:checked {
+    accent-color: #05ce91;
+    opacity: 1;
+}
+
+input[type='checkbox']:hover {
+    cursor: pointer;
 }

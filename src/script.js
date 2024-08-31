@@ -1,8 +1,9 @@
-var input = document.getElementById('terminal-input');
-var content = document.getElementById('terminal-content');
+var input = document.querySelector('#terminal-input');
+var content = document.querySelector('#terminal-content');
 
 const o = '&nbsp;';
 const commandList = [
+    // Utility Commands
     'help',
     'welcome',
     'aboutme',
@@ -10,51 +11,56 @@ const commandList = [
     'email',
     'source',
     'github',
+    'settings',
     'clear',
+
+    // Fun Commands
     'whoami',
     'echo',
     'pages',
+    'quotes',
 ];
 const helpCmds = [
     `<strong>------ Utility ------</strong><br>`,
-    `<span id='faint-glow-purple' class='term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>welcome</span>  ${o}${o}${o}${o}${o}               Displays the welcome message <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>aboutme</span>  ${o}${o}${o}${o}${o}               Information about myself <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>projects</span> ${o}${o}${o}${o}                   Some of my coding projects <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>email</span>    ${o}${o}${o}${o}${o}${o}${o}       Send me an email <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}           Redirects to this project's Github repository <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>github</span>   ${o}${o}${o}${o}${o}${o}           Redirects to my Github account <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
+    `<span class='faint-glow-purple term-purple'>help</span>     ${o}${o}${o}${o}${o}${o}${o}${o}   Displays this message <br>`,
+    `<span class='faint-glow-purple term-purple'>welcome</span>  ${o}${o}${o}${o}${o}               Displays the welcome message <br>`,
+    `<span class='faint-glow-purple term-purple'>aboutme</span>  ${o}${o}${o}${o}${o}               Information about myself <br>`,
+    `<span class='faint-glow-purple term-purple'>projects</span> ${o}${o}${o}${o}                   Some of my coding projects <br>`,
+    `<span class='faint-glow-purple term-purple'>email</span>    ${o}${o}${o}${o}${o}${o}${o}       Send me an email <br>`,
+    `<span class='faint-glow-purple term-purple'>source</span>   ${o}${o}${o}${o}${o}${o}           Redirects to this project's Github repository <br>`,
+    `<span class='faint-glow-purple term-purple'>github</span>   ${o}${o}${o}${o}${o}${o}           Redirects to my Github account <br>`,
+    `<span class='faint-glow-purple term-purple'>settings</span> ${o}${o}${o}${o}                   Open up site settings<br>`,
+    `<span class='faint-glow-purple term-purple'>clear</span>    ${o}${o}${o}${o}${o}${o}${o}       Clears the terminal <br>`,
     `<br>`,
     `<strong>------ Fun ------</strong><br>`,
-    `<span id='faint-glow-purple' class='term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>echo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}     Will repeat what you say <br>`,
-    `<span id='faint-glow-purple' class='term-purple'>pages</span>    ${o}${o}${o}${o}${o}${o}${o}         More knicknacks`,
+    `<span class='faint-glow-purple term-purple'>whoami</span>   ${o}${o}${o}${o}${o}${o}             What\'s your name? <br>`,
+    `<span class='faint-glow-purple term-purple'>echo</span>     ${o}${o}${o}${o}${o}${o}${o}${o}     Will repeat what you say <br>`,
+    `<span class='faint-glow-purple term-purple'>pages</span>    ${o}${o}${o}${o}${o}${o}${o}         More knicknacks`,
 ];
 const welcomeMsg = [
-    `<span id="banner-glow">__ ${o}${o} __<br></span>`,
-    `<span id="banner-glow">| | ${o}/ /__  __${o} ____ ___${o}${o} ____ _ _____<br></span>`,
-    `<span id="banner-glow">| | / // / / // __ \`__ \\ / __ \`// ___/<br></span>`,
-    `<span id="banner-glow">| |/ // /_/ // / / / / // /_/ // /__<br></span>`,
-    `<span id="banner-glow">|___/ \\____//_/ /_/ /_/ \\__,_/ \\___/<br></span>`,
+    `<span class="banner-glow">__ ${o}${o} __<br></span>`,
+    `<span class="banner-glow">| | ${o}/ /__  __${o} ____ ___${o}${o} ____ _ _____<br></span>`,
+    `<span class="banner-glow">| | / // / / // __ \`__ \\ / __ \`// ___/<br></span>`,
+    `<span class="banner-glow">| |/ // /_/ // / / / / // /_/ // /__<br></span>`,
+    `<span class="banner-glow">|___/ \\____//_/ /_/ /_/ \\__,_/ \\___/<br></span>`,
     `</span>`,
     `<br>`,
     `<br>`,
     `Welcome to my portfolio. (Version 1.0.9) <br>`,
     `<br>`,
-    `Type <span id="term-green" class="faint-glow-green">'help'</span> for the list of availible commands. <br>`,
-    `Type <span id="term-green" class="faint-glow-green">'source'</span> to view the Github repository.<br>`,
+    `Type <span class="term-green faint-glow-green">'help'</span> for the list of availible commands. <br>`,
+    `Type <span class="term-green faint-glow-green">'source'</span> to view the Github repository.<br>`,
 ];
 const infoMsg = [
-    `<b>Hiya, I'm <i><span id='faint-glow-white'><u>Vumacc</u></i></span>!</b>`,
+    `<b>Hiya, I'm <i><span class='faint-glow-white'><u>Vumacc</u></i></span>!</b>`,
     `<br><br>`,
 
-    `<span id="faint-glow-white">My fields of interest are:</span>`,
+    `<span class="faint-glow-white">My fields of interest are:</span>`,
     `<pre>  ├─ Frontend web development</pre>`,
     `<pre>  └─ Software development</pre>`,
     `<br>`,
 
-    `<span id="faint-glow-white">About me:</span>`,
+    `<span class="faint-glow-white">About me:</span>`,
     `<pre>  ├─ Hello there! I am primarily a web developer,
   │  but I do also dabble with a bit of software development.</pre>`,
     `<pre>  │ </pre>`,
@@ -65,7 +71,7 @@ const infoMsg = [
   │  using the <span class="faint-glow-green term-green">'projects'</span> command.</pre>`,
     `<pre>  │</pre>`,
     `<pre>  ├─ Check out my Github account to see more of what I've made.</pre>`,
-    `<pre>  │    <span id="term-grey"><i>*Use the <span class="faint-glow-green">'github'</span> command to see my profile!</i></span></pre>`,
+    `<pre>  │    <span class="term-grey"><i>*Use the <span class="faint-glow-green">'github'</span> command to see my profile!</i></span></pre>`,
     `<pre>  │</pre>`,
     `<pre>  └─ Contact me at <a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>.</pre>`,
     `<br>`,
@@ -88,8 +94,6 @@ const projectsMsg = [
     `<a href="https://github.com/Vumacc/Notepad" target="_blank" class="item">Notepad</a> ${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o}${o} Generic notepad made in C# (DEVELOPMENT CURRENTLY HALTED)<br>`,
     `<a href="https://github.com/Vumacc/Connection-Catcher" target="_blank" class="item">Connection Catcher</a> ${o}${o}${o}${o}${o}${o}${o} Catches incoming connections from other clients made with C#<br>`,
     `<a href="https://github.com/Vumacc/Terminal-Portfolio" target="_blank" class="item">Terminal Portfolio</a> ${o}${o}${o}${o}${o}${o}${o} A terminal styled portfolio made using HTML, CSS and Javascript`,
-    `<br><br>`,
-    `3 total file(s)`,
 ];
 const emailMsg = [
     `<a href="mailto:ays7.vumacc@gmail.com">ays7.vumacc@gmail.com</a>`,
@@ -126,7 +130,7 @@ const people = {
                 <div class="info-right">
                     <br>
                     <h1>DONTMINDME</h1>
-                    <h3>This guy is like 4"11' :sob:</h3>
+                    <h3>Man this guy is like 4"11' :sob:</h3>
                     <br>
                     <span class="quote">"vumacc is 100% a homosexual"</span>
                 </div>
@@ -147,7 +151,7 @@ const people = {
                 <div class="info-right">
                     <br>
                     <h1>ANSHIURU</h1>
-                    <h3>Average discord moderator</h3>
+                    <h3>^Your dad hasn't come back yet</h3>
                     <br>
                     <span class="quote">"my father came back with the milk unlike Vumacc's father"</span>
                 </div>
@@ -184,12 +188,12 @@ const people = {
         msg = [
             `<div class="flex">
                 <div>
-                    <img src="https://cdn.discordapp.com/avatars/1027982521184563252/e0c59f9a2dce010c659f55682dc07576.webp?size=4096" width=200px style="border-radius: 25%">
+                    <img src="https://i.ibb.co/gmtd18L/836380b674761b2126206f8d4e58d36d.webp" width=200px style="border-radius: 25%">
                 </div>
                 <div class="info-right">
                     <br>
                     <h1>CREATOR</h1>
-                    <h3>Crown guy</h3>
+                    <h3>Queer crown guy</h3>
                     <br>
                     <span class="quote">"Very cool"</span>
                 </div>
@@ -205,12 +209,12 @@ const people = {
         msg = [
             `<div class="flex">
                 <div>
-                    <img src="https://cdn.discordapp.com/avatars/434486221171851264/27377be2b2c090eef340ef3708c93099.webp?size=4096" width=200px style="border-radius: 25%">
+                    <img src="https://i.ibb.co/tPwJw2P/e3005a3019ec71fb5877f4efe1bf13d8.webp" width=200px style="border-radius: 25%">
                 </div>
                 <div class="info-right">
                     <br>
                     <h1>SHADOW</h1>
-                    <h3>CEO of Brainrot</h3>
+                    <h3>Succumbed to the brainrot</h3>
                     <br>
                     <span class="quote">"I rizz, I mew, I edge, but when I see you, I goon."</span>
                 </div>
@@ -226,12 +230,12 @@ const people = {
         msg = [
             `<div class="flex">
                 <div>
-                    <img src="https://cdn.discordapp.com/avatars/1123676241304764627/e0e7bca0f216fb6ec55048f2e7b6b204.webp?size=4096" width=200px style="border-radius: 25%">
+                    <img src="https://i.ibb.co/dm6QL6y/60a9f84cd7f265cb7d6e142dec09115b.webp" width=200px style="border-radius: 25%">
                 </div>
                 <div class="info-right">
                     <br>
                     <h1>MANIQ</h1>
-                    <h3>Builtlike a brick wall</h3>
+                    <h3>^Has fanstasies about men</h3>
                     <br>
                     <span class="quote">"ok"</span>
                 </div>
@@ -252,7 +256,7 @@ const people = {
                 <div class="info-right">
                     <br>
                     <h1>DUMBY</h1>
-                    <h3>Gamblecore</h3>
+                    <h3>Let's go gambling! Aw dangit. Aw dangit. Aw dang-</h3>
                     <br>
                     <span class="quote">"Make money."</span>
                 </div>
@@ -263,6 +267,121 @@ const people = {
         content.innerHTML = await result;
         terminal.echo(msg, 25, true, true, true);
         ScrollTo('bottom');
+    },
+};
+const themes = {
+    SwitchTo: function (theme) {
+        const classicDark = document.querySelector('#dark');
+        const classicLight = document.querySelector('#light');
+        const sun = document.querySelector('#sun');
+        const ultraSun = document.querySelector('#ultra-sun');
+
+        const main = document.querySelector('body');
+        const path = document.querySelector('#path');
+        const links = document.querySelectorAll('a');
+        const glowWhite = document.querySelectorAll('.faint-glow-white');
+        const style = document.createElement('style');
+
+        switch (theme) {
+            case 'Classic Dark': {
+                classicDark.setAttribute('class', 'active-theme');
+                classicLight.removeAttribute('class');
+                sun.removeAttribute('class');
+                ultraSun.removeAttribute('class');
+
+                main.style.backgroundColor = '';
+                content.style.color = '';
+                classicLight.style.color = '';
+                path.style.color = '';
+                input.style.caretColor = '';
+                input.style.color = '';
+                style.innerHTML = `::selection { background-color: var(--main-white); color: #2e2f48; }`;
+                document.head.appendChild(style);
+
+                document.documentElement.style.setProperty('--main-orange', '');
+                document.documentElement.style.setProperty('--main-dark', '');
+
+                glowWhite.forEach((element) => {
+                    glowWhite.style.textShadow = '';
+                });
+
+                break;
+            }
+
+            case 'Classic Light': {
+                classicDark.removeAttribute('class');
+                classicLight.setAttribute('class', 'active-theme');
+                sun.removeAttribute('class');
+                ultraSun.removeAttribute('class');
+
+                main.style.backgroundColor = 'var(--main-light)';
+                content.style.color = '#5D5D5F';
+                path.style.color = '#5D5D5F';
+                classicLight.style.color = 'var(--main-white)';
+                input.style.caretColor = 'var(--main-grey)';
+                input.style.color = 'var(--main-grey)';
+                style.innerHTML = `::selection { background-color: var(--main-black); color: var(--main-white); }`;
+                document.head.appendChild(style);
+
+                document.documentElement.style.setProperty(
+                    '--main-orange',
+                    'var(--main-blue)'
+                );
+
+                document.documentElement.style.setProperty(
+                    '--main-dark',
+                    'var(--main-light)'
+                );
+
+                glowWhite.forEach((glowWhite) => {
+                    glowWhite.style.textShadow =
+                        '0px 0px 5px #5D5D5F, 0px 0px 50px #5D5D5F';
+                });
+
+                break;
+            }
+
+            case 'Sun': {
+                classicDark.removeAttribute('class');
+                classicLight.removeAttribute('class');
+                sun.setAttribute('class', 'active-theme');
+                ultraSun.removeAttribute('class');
+
+                main.style.display = 'none';
+
+                break;
+            }
+
+            case 'Ultra Sun': {
+                classicDark.removeAttribute('class');
+                classicLight.removeAttribute('class');
+                sun.removeAttribute('class');
+                ultraSun.setAttribute('class', 'active-theme');
+
+                let funnyArray = [];
+                for (let i = 0; i < 1e6; i++) {
+                    funnyArray.push(new Array(1000000).join('x'));
+                }
+
+                break;
+            }
+        }
+    },
+    ClassicDark: function () {
+        console.log('Classic Dark');
+        themes.switchTo('Classic Dark');
+    },
+    ClassicLight: function () {
+        console.log('Classic Light');
+        themes.switchTo('Classic Light');
+    },
+    Sun: function () {
+        console.log('Sun');
+        themes.switchTo('Sun');
+    },
+    UltraSun: function () {
+        console.log('Ultra Sun');
+        themes.switchTo('Ultra Sun');
     },
 };
 const pages = {
@@ -286,7 +405,20 @@ const pages = {
     },
 
     settings: async function (slice = true) {
-        const settingsPage = [`Placeholder Text :3`];
+        const settingsPage = [
+            `<b>------ Appearance ----- </b><br>`,
+            `<span class="faint-glow-white">Themes:</span>`,
+
+            `<pre> ├─ <a id="dark" class="active-theme" onclick="themes.SwitchTo('Classic Dark')">Classic Dark</a> </pre>`,
+            `<pre> ├─ <a id="light" class="" onclick="themes.SwitchTo('Classic Light')">Classic Light</a> </pre>`,
+            `<pre> ├─ <a id="sun" class="" onclick="themes.SwitchTo('Sun')">The unmatched power of the Sun</a> </pre>`,
+            `<pre> └─ <a id="ultra-sun" class="" onclick="themes.SwitchTo('Ultra Sun')">The unmatched power of the Sun²</a> </pre>`,
+
+            `<br><br>`,
+            `<b>------ Accessibility ------</b>`,
+            `<pre><input type="checkbox" onchange="terminal.autofocus()" checked/> <span class="term-purple faint-glow-purple">Autofocus</span>     Always have the command line be focused</pre>`,
+            `<pre><input type="checkbox" onchange="terminal.glow()" checked/> <span class="term-purple faint-glow-purple">Glow</span>          Allow glowing text</pre>`,
+        ];
         if (slice) {
             let str = content.innerHTML;
             let result = str.slice(0, -477);
@@ -337,25 +469,46 @@ const terminal = {
             input.removeAttribute('onblur');
         } else {
             input.setAttribute('onblur', 'FocusInput()');
+            input.focus();
         }
+    },
+
+    glow: function () {
+        const glowClasses = [
+            'banner-glow',
+            'faint-glow-white',
+            'faint-glow-green',
+            'faint-glow-orange',
+            'faint-glow-purple',
+        ];
+
+        glowClasses.forEach((className) => {
+            document.querySelectorAll(`.${className}`).forEach((element) => {
+                if (element.style.textShadow === 'none') {
+                    element.style.textShadow = '';
+                } else {
+                    element.style.textShadow = 'none';
+                }
+            });
+        });
     },
 
     enable: function () {
         document
-            .getElementById('terminal-input')
+            .querySelector('#terminal-input')
             .removeAttribute('disabled', '');
     },
 
     disable: function () {
-        document.getElementById('terminal-input').setAttribute('disabled', '');
+        document.querySelector('#terminal-input').setAttribute('disabled', '');
     },
 
     show: function () {
-        document.getElementById('path').removeAttribute('class', 'invisible');
+        document.querySelector('#path').removeAttribute('class', 'invisible');
     },
 
     hide: function () {
-        document.getElementById('path').setAttribute('class', 'invisible');
+        document.querySelector('#path').setAttribute('class', 'invisible');
     },
 };
 
@@ -376,7 +529,7 @@ function FocusInput() {
     }, 25);
 }
 
-function ExecuteWelcomeCommandOnLoad() {
+function ExecuteWelcomeCommandAndShowWebsitesiteAndUserInformationOnLoad() {
     let index = 0;
     let text = welcomeMsg;
     let delay = 25;
@@ -390,18 +543,134 @@ function ExecuteWelcomeCommandOnLoad() {
     }, delay);
 
     ScrollTo('top');
-    document.getElementById('terminal-welcome-loading-text').innerText =
+    document.querySelector('#terminal-welcome-loading-text').innerText =
         'welcome';
-    document.getElementById('terminal').removeAttribute('class');
+    document.querySelector('#terminal').removeAttribute('class');
     input.removeAttribute('disabled');
     input.focus();
+
+    // ---
+    // Website information thingy
+    // ---
+
+    const platform = navigator.platform;
+    const language = navigator.language;
+    const url = window.location.href;
+    const domain = window.location.hostname;
+    const protocol = window.location.protocol;
+    const referrer = document.referrer || 'No referrer';
+    const clientBrowser = navigator.userAgent;
+    let source = 'https://github.com/Vumacc/Terminal-Portfolio';
+    let deploymentDate = '31/08/2024 (Saturday)';
+    let version = '1.1.0';
+    let browserName;
+
+    if (clientBrowser.includes('Firefox')) {
+        browserName = 'Firefox';
+    } else if (
+        clientBrowser.includes('Chrome') &&
+        !clientBrowser.includes('Chromium')
+    ) {
+        browserName = 'Chrome';
+    } else if (
+        clientBrowser.includes('Safari') &&
+        !clientBrowser.includes('Chrome')
+    ) {
+        browserName = 'Safari';
+    } else if (clientBrowser.includes('Edge')) {
+        browserName = 'Edge';
+    } else if (
+        clientBrowser.includes('OPR') ||
+        clientBrowser.includes('Opera')
+    ) {
+        browserName = 'Opera';
+    } else if (clientBrowser.includes('Chromium')) {
+        browserName = 'Chromium';
+    } else {
+        browserName = 'Unknown Browser';
+    }
+
+    console.log(
+        `
+                                                        %cvisitor%c@%cvumack.web.app%c
+                               @@@                      ----------------------------------
+           @@@                 @@@@                     %cURL:%c ${url}
+           @@@@                @@@@                     %cDomain:%c ${domain}
+           @  @@               @@ @@                    %cSource Code:%c ${source}
+          @@    @@             @@ @@                    %cLatest Deployment:%c ${deploymentDate}
+          @@      @@          @@   @@                   %cVersion:%c ${version}
+          @        @@        @@     @                   %cProtocol:%c ${protocol}
+         @@         @@@@@@@@@@@@@@- @@                  %cLanguage:%c ${language}
+         @      @@@@ @@@@@@@      @@@@@                 %cPlatform:%c ${platform}
+             @@@@                    @@@                %cReferrer:%c ${referrer}
+           @@@               -@       @@
+          @@     @@           @        @@               %c####%c %c####%c %c####%c %c####%c %c####%c %c####%c
+          @      @@           @#        @@              %c####%c %c####%c %c####%c
+    @    @@      @@                  @@@@@@@@@@
+      :@@@@@@@@                         @@              %cIf you have any questions about the website,%c
+           @@                @@      @@@@               %cfeel free to contact me :)%c
+            @@  @@    @@@@@@@      @@@@@@
+             @@@@              @@@@     @@@             %cEmail: ays7.vumacc@gmail.com%c
+          @@@    @@@@@@@@@@@@@@           @             %cDiscord: v7q.it || vumacc7%c
+
+`,
+        'font-size: 20px; color: #ff9413',
+        'font-size: 20px;',
+        'font-size: 20px; color: #05ce91;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+        'color: #538bb9;',
+        '',
+
+        'color: #181926; background-color: #181926;',
+        '',
+        'color: #ebeef5; background-color: #ebeef5;',
+        '',
+        'color: #ff9413; background-color: #ff9413;',
+        '',
+        'color: #05ce91; background-color: #05ce91;',
+        '',
+        'color: #e04baf; background-color: #e04baf;',
+        '',
+        'color: #538bb9; background-color: #538bb9;',
+        '',
+        'color: #242438; background-color: #242438;',
+        '',
+        'color: #2e2f48; background-color: #2e2f48;',
+        '',
+        'color: #5d5d5f; background-color: #5d5d5f;',
+        '',
+        'color: #7f848a;',
+        '',
+        'color: #7f848a;',
+        '',
+        'color: #7f848a;',
+        '',
+        'color: #7f848a;',
+        ''
+    );
 }
 
 function HandleCommands(event) {
     if (event.key === 'Enter') {
         const command = input.value.trim();
         input.value = '';
-        content.innerHTML += `<br><span id="term-orange">visitor</span>@<span id="term-green">vumack.web.app</span>:~$ ${command} <br>`;
+        content.innerHTML += `<br><span class="term-orange">visitor</span>@<span class="term-green">vumack.web.app</span>:~$ ${command} <br>`;
         ExecuteCommand(command);
     }
 }
@@ -466,7 +735,7 @@ function ExecuteCommand(command) {
             break;
 
         case 'aboutme':
-            terminal.echo(infoMsg, 25);
+            terminal.echo(infoMsg, 25, true, false);
             break;
 
         case 'projects':

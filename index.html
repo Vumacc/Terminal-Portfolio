@@ -7,14 +7,17 @@
         <link href="/src/assets/favicon.ico" rel="icon" type="image/x-icon" />
         <link rel="stylesheet" href="src/style.css" />
     </head>
-    <body onload="ExecuteWelcomeCommandOnLoad()" onloadstart="">
-        <div id="main-wrapper">
+    <body
+        onload="ExecuteWelcomeCommandAndShowWebsitesiteAndUserInformationOnLoad()"
+        onloadstart="">
+        <div class="main-wrapper">
             <br />
 
             <div id="terminal-content">
-                <span id="term-orange">visitor</span>@<span id="term-green"
+                <span class="term-orange">visitor</span>@<span
+                    class="term-green"
                     >vumack.web.app</span
-                ><span id="welcome-onload-input">:~$</span>
+                ><span class="welcome-onload-input">:~$</span>
                 <span id="terminal-welcome-loading-text"
                     >Waiting for page to load...</span
                 ><br /><br />
@@ -22,11 +25,12 @@
 
             <div id="terminal" class="invisible">
                 <p id="path">
-                    <span id="term-orange">visitor</span>@<span id="term-green"
+                    <span class="term-orange">visitor</span>@<span
+                        class="term-green"
                         >vumack.web.app</span
                     >:~$
                 </p>
-                <div id="cursor">
+                <div #="cursor">
                     <input
                         id="terminal-input"
                         type="text"
@@ -42,10 +46,10 @@
             </div>
         </div>
 
-        <div id="bottom"></div>
+        <div class="bottom"></div>
 
         <!-- This will be used eventually (trust)
-        <div id="secondary-wrapper"></div>
+        <div class="secondary-wrapper"></div>
         -->
 
         <script src="src/script.js"></script>
