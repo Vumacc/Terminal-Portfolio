@@ -293,18 +293,17 @@ const themes = {
                 content.style.color = '';
                 classicLight.style.color = '';
                 path.style.color = '';
+                
                 input.style.caretColor = '';
                 input.style.color = '';
+                
                 style.innerHTML = `::selection { background-color: var(--main-white); color: #2e2f48; }`;
                 document.head.appendChild(style);
-
                 document.documentElement.style.setProperty('--main-orange', '');
                 document.documentElement.style.setProperty('--main-dark', '');
-
-                glowWhite.forEach((element) => {
+                glowWhite.forEach((element) => { 
                     glowWhite.style.textShadow = '';
-                });
-
+                }); 
                 break;
             }
 
@@ -318,27 +317,18 @@ const themes = {
                 content.style.color = '#5D5D5F';
                 path.style.color = '#5D5D5F';
                 classicLight.style.color = 'var(--main-white)';
+
                 input.style.caretColor = 'var(--main-grey)';
                 input.style.color = 'var(--main-grey)';
+
                 style.innerHTML = `::selection { background-color: var(--main-black); color: var(--main-white); }`;
                 document.head.appendChild(style);
-
-                document.documentElement.style.setProperty(
-                    '--main-orange',
-                    'var(--main-blue)'
-                );
-
-                document.documentElement.style.setProperty(
-                    '--main-dark',
-                    'var(--main-light)'
-                );
-
+                document.documentElement.style.setProperty( '--main-orange', 'var(--main-blue)');
+                document.documentElement.style.setProperty( '--main-dark', 'var(--main-light)');
                 glowWhite.forEach((glowWhite) => {
-                    glowWhite.style.textShadow =
-                        '0px 0px 5px #5D5D5F, 0px 0px 50px #5D5D5F';
+                    glowWhite.style.textShadow = '0px 0px 5px #5D5D5F, 0px 0px 50px #5D5D5F';
                 });
-
-                break;
+                break; 
             }
 
             case 'Sun': {
@@ -346,9 +336,7 @@ const themes = {
                 classicLight.removeAttribute('class');
                 sun.setAttribute('class', 'active-theme');
                 ultraSun.removeAttribute('class');
-
                 main.style.display = 'none';
-
                 break;
             }
 
@@ -359,31 +347,37 @@ const themes = {
                 ultraSun.setAttribute('class', 'active-theme');
 
                 let funnyArray = [];
-                for (let i = 0; i < 1e6; i++) {
-                    funnyArray.push(new Array(1000000).join('x'));
-                }
+                    for (let i = 0; i < 1e6; i++) {
+                        funnyArray.push(new Array(1000000).join('x'));
+                    }
 
                 break;
             }
         }
     },
+
+
     ClassicDark: function () {
         console.log('Classic Dark');
         themes.switchTo('Classic Dark');
     },
+
     ClassicLight: function () {
         console.log('Classic Light');
         themes.switchTo('Classic Light');
     },
+
     Sun: function () {
         console.log('Sun');
         themes.switchTo('Sun');
     },
+
     UltraSun: function () {
         console.log('Ultra Sun');
         themes.switchTo('Ultra Sun');
     },
 };
+
 const pages = {
     quotes: async function (slice = true) {
         const quotesMsg = [

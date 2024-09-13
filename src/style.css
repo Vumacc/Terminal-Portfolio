@@ -9,6 +9,21 @@
     --main-blue: #538bb9;
 }
 
+@media only screen and (max-width: 600px) {
+   #terminal-content {
+	   font-size: 14px;
+	   width: 350px;
+   }
+
+   #terminal-input {
+	   font-family: 13px;
+   }
+
+   .main-wrapper {
+       width: 450px;
+   }
+}
+
 body {
     color: var(--main-white);
     background-color: var(--main-dark);
@@ -193,28 +208,25 @@ pages-item:hover {
     margin: 0;
 }
 
-#terminal-content {
-    width: 1000px;
+@media only screen and (max-width: 1000px) {
+	#terminal-content {
+		width: 1000px;
+	}
 }
 
-#terminal-input,
 #terminal-input {
     background-color: transparent;
 
-    border: 0px;
+	border: 0px;
     appearance: none;
     outline-width: 0;
+	outline: none;
 
     margin-left: 10px;
 
     font-family: monospace;
     font-size: 17px;
     color: var(--main-white);
-}
-
-#terminal-input {
-    outline: none;
-    outline-width: 0px;
 }
 
 #cursor {
